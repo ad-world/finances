@@ -1,4 +1,5 @@
 from dataclasses import dataclass
+from datetime import date
 from enum import Enum
 
 @dataclass
@@ -7,8 +8,8 @@ class CreditTransaction:
     account_currency: str
     account_number: str
     account_type: str
-    transaction_date: str
-    transaction_posted_date: str
+    transaction_date: date
+    transaction_posted_date: date
     amount: float
     type: str
     description: str
@@ -21,7 +22,7 @@ class DebitTransaction:
     routing_number: str
     account_number: str
     account_type: str
-    transaction_posted_date: str
+    transaction_posted_date: date
     transaction_posted_time: str
     amount: float
     type: str
@@ -39,3 +40,6 @@ class CreditTransactionType(str, Enum):
     INTEREST = "Interest"
     OTHER = "Other"
 
+class FileType(str, Enum):
+    CREDIT = "credit"
+    DEBIT = "debit"
